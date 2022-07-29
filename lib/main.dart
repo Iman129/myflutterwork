@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myfirst_app/home_page.dart';
+import 'package:myfirst_app/pages/home_page.dart';
+import 'package:myfirst_app/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,15 +12,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 30;
-    double dem = 4.5;
     //String name = "Iman's";
     //var op = 5;
     //var day = 3.6;
     //const pi = 3.14; //constant value
 
     return MaterialApp(
-      home: HomePage(),
-      );
+      //home: HomePage(), y tw"/" routes wala use kro ya phr ye
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        fontFamily: GoogleFonts.lato().fontFamily,
+        primarySwatch: Colors.pink,
+        //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
+      ),
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      //initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(), //by default this page
+        "/login": (context) => LoginPage(),
+        "/home": (context) => HomePage()
+      },
+    );
   }
+  // bringHomePageegetables({bool thaila=false,int rupees=100}){}
+  //bringHomePageegetabless({@required bool thaila,int rupees=100}){}
+
 }

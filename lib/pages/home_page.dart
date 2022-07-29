@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:myfirst_app/home_page.dart';
-
 
 class HomePage extends StatelessWidget {
   @override
@@ -12,15 +10,15 @@ class HomePage extends StatelessWidget {
     String name = "Iman's";
 
      return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.amber,
+      appBar: AppBar(//backgroundColor: Colors.amber,
       title: Text("Doctor's App"),),
       body: Center(
         child: Container(
           child: Text("welcome to $name first app in days $days and $dem"),
         ),
       ),
-      drawer: Drawer(backgroundColor: Colors.blue,),
-      backgroundColor: Colors.blueGrey,
+      drawer: Drawer()//backgroundColor: Colors.blue,),
+     // backgroundColor: Colors.blueGrey,
     );
     
       //return Material(
@@ -32,3 +30,4 @@ class HomePage extends StatelessWidget {
     //);
   }
 }
+
