@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
       ),
       darkTheme: ThemeData(brightness: Brightness.dark),
-      //initialRoute: "/home",
+      initialRoute: MyRoutes.HomeRoute,
+      //initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(), //by default this page
         MyRoutes.HomeRoute: (context) => HomePage(),

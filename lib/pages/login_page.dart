@@ -6,6 +6,7 @@ import 'package:material_color_utilities/material_color_utilities.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -158,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                               width: 170,
                               //color: Colors.white,
                               child: Text(
-                                "don't have an aacount?",
+                                "don't have an acount?",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
@@ -177,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                               alignment: Alignment.center,
                               height: 100,
-                              width: 60,
+                              width: 55,
                               // color: Colors.white,
                               child: Text(
                                 "SignUp",

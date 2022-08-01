@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class HomePage extends StatelessWidget {
           child: Text("welcome to $name first app in days $days and $dem"),
         ),
       ),
-      drawer: Drawer()//backgroundColor: Colors.blue,),
+      drawer: MyDrawer()//backgroundColor: Colors.blue,),
      // backgroundColor: Colors.blueGrey,
     );
     
