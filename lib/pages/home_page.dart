@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
 
      return Scaffold(
       appBar: AppBar(//backgroundColor: Colors.amber,
-      title: Text("Doctor's App"),),
+      title: Text("Catalog App"),),
       body: Center(
         child: Container(
           child: Text("welcome to $name first app in days $days and $dem"),

@@ -3,6 +3,7 @@ import 'package:myfirst_app/pages/home_page.dart';
 import 'package:myfirst_app/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myfirst_app/utils/routes.dart';
+import 'package:myfirst_app/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,13 +23,10 @@ class MyApp extends StatelessWidget {
       //home: HomePage(), y tw"/" routes wala use kro ya phr ye
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-        primarySwatch: Colors.pink,
+      theme: MyTheme.lightTheme(context),//from class of theme
         //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
-      ),
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: MyRoutes.HomeRoute,
+      darkTheme: MyTheme.darkTheme(context), //from class of theme
+      initialRoute: MyRoutes.HomeRoute ,
       //initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(), //by default this page
