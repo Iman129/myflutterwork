@@ -22,7 +22,7 @@ class ItemWidget extends StatelessWidget {
         },
         //for list item
         leading: Image.network(item.image),
-        title: Text("Iphone 12 pro"),
+        title: Text(item.name),
         subtitle: Text(item.desc),
         //tileColor: Colors.amber,
         trailing: Text(
