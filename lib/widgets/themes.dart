@@ -5,7 +5,7 @@ class MyTheme {
   //for light theme
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         primarySwatch: Colors.pink,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: AppBarTheme(
             //har jagah appbar show hogi har page pe\
             iconTheme: IconThemeData(color: Colors.black),
@@ -18,9 +18,12 @@ class MyTheme {
             ),
       );
 
-
   //for dark theme
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
       );
+
+  //Colors
+  static Color creamColor = Color(0xfff5f5f5);
+  static Color darkbluishColor = Color.fromARGB(255, 20, 10, 72);
 }
