@@ -14,10 +14,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(), //it will give back button
-      backgroundColor: MyTheme.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ), //it will give back button
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero, //khali right se padding
@@ -25,12 +27,13 @@ class HomeDetailPage extends StatelessWidget {
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             ElevatedButton(
               onPressed: () {},
-              child: "Buy".text.make(),
+              child: "Add to cart".text.make(),
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(MyTheme.darkbluishColor),
+                      // ignore: deprecated_member_use
+                      MaterialStateProperty.all(context.theme.buttonColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),
-            ).wh(100, 50)
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
@@ -49,16 +52,20 @@ class HomeDetailPage extends StatelessWidget {
                 edge: VxEdge.TOP,
                 child: Container(
                   width: context.screenWidth,
-                  color: Colors.red,
+                  color: context.cardColor,
                   child: Column(
                     children: [
                       catalog.name.text.bold.xl4
-                          .color(MyTheme.darkbluishColor)
+                          .color(context.theme.accentColor)
                           .make(),
                       catalog.desc.text.xl
-                          .textStyle(context.captionStyle)
+                          .textStyle(context.captionStyle) .color(context.theme.accentColor)
                           .make(),
                       10.heightBox,
+                      "Sit ipsum exercitation tempor nisi non amet. Irure ex reprehenderit do fugiat aliquip sit in cillum ut ea labore minim. Amet velit sit tempor est velit laborum. Nisi et est laboris incididunt sint ea elit ad occaecat."
+                      .text
+                       .textStyle(context.captionStyle).color(context.theme.accentColor)  
+                          .make().p12(),
                     ],
                   ).py64(),
                 ),

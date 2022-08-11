@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfirst_app/pages/cart_page.dart';
 import 'package:myfirst_app/pages/home_page.dart';
 import 'package:myfirst_app/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,16 +23,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: HomePage(), y tw"/" routes wala use kro ya phr ye
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      theme: MyTheme.lightTheme(context),//from class of theme
-        //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
+      themeMode: ThemeMode.dark,
+      theme: MyTheme.lightTheme(context), //from class of theme
+      //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
       darkTheme: MyTheme.darkTheme(context), //from class of theme
-      initialRoute: MyRoutes.HomeRoute ,
+      initialRoute: MyRoutes.LoginRoute,
       //initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(), //by default this page
         MyRoutes.HomeRoute: (context) => HomePage(),
-       MyRoutes.LoginRoute: (context) => LoginPage()
+        MyRoutes.LoginRoute: (context) => LoginPage(),
+        MyRoutes.CartRoute: (context) => CartPage(),
       },
     );
   }

@@ -1,7 +1,9 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myfirst_app/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart%20';
 //import 'package:material_color_utilities/material_color_utilities.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -31,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -50,13 +52,13 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: context.accentColor),
                   ),
                 ),
 
                 Text(
                   "Welcome $name",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.normal),
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.normal, color: context.accentColor),
                 ),
                 SizedBox(
                   height: 20.0,
@@ -66,9 +68,16 @@ class _LoginPageState extends State<LoginPage> {
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 200),
                   child: Column(children: [
                     TextFormField(
-                      decoration: InputDecoration(
+                     decoration: InputDecoration( 
+                         hintStyle: TextStyle(
+                    color: context.accentColor,
+                  ),
+                  // border: InputBorder.none,
+                        fillColor: context.accentColor.withOpacity(0.2),
+                        // filled: true,
                         hintText: "User Name Here",
                         labelText: "User Name",
+                       
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -86,6 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
+                        //fillColor: context.accentColor.withOpacity(0.2),
+                         filled: true,
                         hintText: "Password  Here",
                         labelText: "Password",
                       ),
@@ -145,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 520, vertical: 5),
+                          horizontal: 450, vertical: 5),
                       child: Row(
                         children: [
                           InkWell(
@@ -156,13 +167,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                               alignment: Alignment.center,
                               height: 100,
-                              width: 170,
+                              width: 200,
                               //color: Colors.white,
                               child: Text(
                                 "don't have an acount?",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16,
+                                  
                                 ),
                               ),
                             ),
@@ -178,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Container(
                               alignment: Alignment.center,
                               height: 100,
-                              width: 55,
+                              width: 75,
                               // color: Colors.white,
                               child: Text(
                                 "SignUp",
