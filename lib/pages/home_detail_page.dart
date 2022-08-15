@@ -15,12 +15,13 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
       ), //it will give back button
       backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
         color: context.cardColor,
         child: ButtonBar(
+          
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero, //khali right se padding
           children: [
@@ -29,7 +30,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               child: "Add to cart".text.make(),
               style: ButtonStyle(
-                  backgroundColor:
+                  backgroundColor: 
                       // ignore: deprecated_member_use
                       MaterialStateProperty.all(context.theme.buttonColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),

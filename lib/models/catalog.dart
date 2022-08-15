@@ -6,9 +6,13 @@ import 'dart:convert';
 class CatalogModel {
   // static to acces directly
   static List<Item> items = [];
-  
-}
 
+  static Item getById(int id) => items.firstWhere((element) => element.id == id,
+      orElse: null); //lement ki id meri id k equal honi chahiye warna null ho
+
+  //get item by position
+ static Item getByPosition(int pos) => items[pos];
+}
 
 class Item {
   final int id; //can not be changed if final
@@ -18,14 +22,13 @@ class Item {
   final String color;
   final String image;
 
-  Item( {
-    required this.id,
-     required this.name,
-     required this.desc,
-     required this.price,
-     required this.color,
-     required this.image
-  });
+  Item(
+      {required this.id,
+      required this.name,
+      required this.desc,
+      required this.price,
+      required this.color,
+      required this.image});
 
   Item copyWith({
     int? id,
@@ -40,8 +43,8 @@ class Item {
       name: name ?? this.name,
       desc: desc ?? this.desc,
       price: price ?? this.price,
-      color:color ?? this.color,
-      image:image ?? this.image,
+      color: color ?? this.color,
+      image: image ?? this.image,
     );
   }
 
@@ -59,17 +62,18 @@ class Item {
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
       id: map['id'] as int,
-      name:map['name'] as String,
-      desc:map['desc'] as String,
-      price:map['price'] as num,
-      color:map['color'] as String,
-      image:map['image'] as String,
+      name: map['name'] as String,
+      desc: map['desc'] as String,
+      price: map['price'] as num,
+      color: map['color'] as String,
+      image: map['image'] as String,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Item.fromJson(String source) => Item.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Item.fromJson(String source) =>
+      Item.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -79,25 +83,22 @@ class Item {
   @override
   bool operator ==(covariant Item other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.desc == desc &&
-      other.price == price &&
-      other.color == color &&
-      other.image == image;
+
+    return other.id == id &&
+        other.name == name &&
+        other.desc == desc &&
+        other.price == price &&
+        other.color == color &&
+        other.image == image;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      name.hashCode ^
-      desc.hashCode ^
-      price.hashCode ^
-      color.hashCode ^
-      image.hashCode;
+        name.hashCode ^
+        desc.hashCode ^
+        price.hashCode ^
+        color.hashCode ^
+        image.hashCode;
   }
 }
-
- 

@@ -17,7 +17,7 @@ class CatalogList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: CatalogModel.items.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModel.items[index];
+          final catalog = CatalogModel.getByPosition(index); // same as before all list shows on home
           return InkWell //inkwell will give us something on tapping the button
           (
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeDetailPage(catalog: catalog))),

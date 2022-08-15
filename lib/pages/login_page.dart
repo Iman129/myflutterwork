@@ -33,17 +33,24 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      
+        // ignore: deprecated_member_use
         color: context.canvasColor,
+        
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                Image.asset(
-                  "assets/images/doctor2_image.png",
-                  height: 260,
-                  width: 350,
-                  fit: BoxFit.cover,
+                
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(
+                    "assets/images/doctor2_image.png",
+                    height: 270,
+                    width: 400,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 SizedBox(
                   height: 40.0, //width:200.0,
@@ -58,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 Text(
                   "Welcome $name",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.normal, color: context.accentColor),
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: context.accentColor),
                 ),
                 SizedBox(
                   height: 20.0,
@@ -67,17 +74,14 @@ class _LoginPageState extends State<LoginPage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 200),
                   child: Column(children: [
+                    
                     TextFormField(
+                      // ignore: deprecated_member_use
+                      //style: TextStyle(color: Colors.white),
                      decoration: InputDecoration( 
-                         hintStyle: TextStyle(
-                    color: context.accentColor,
-                  ),
-                  // border: InputBorder.none,
-                        fillColor: context.accentColor.withOpacity(0.2),
-                        // filled: true,
-                        hintText: "User Name Here",
-                        labelText: "User Name",
-                       
+                    hintText: "User Name Here",
+                    labelText: "User Name",
+                      
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -96,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: true,
                       decoration: InputDecoration(
                         //fillColor: context.accentColor.withOpacity(0.2),
-                         filled: true,
+                         //filled: true,
                         hintText: "Password  Here",
                         labelText: "Password",
                       ),
@@ -121,7 +125,8 @@ class _LoginPageState extends State<LoginPage> {
 
                 Material(
                   borderRadius: BorderRadius.circular(ChangeButton ? 50 : 8),
-                  color: Color.fromARGB(255, 48, 28, 131),
+                  // ignore: deprecated_member_use
+                  color:context.theme.buttonColor,
                   child: InkWell(
                     // hoverColor: Colors.pink,
                     onTap: () => moveToHome(context),
@@ -153,7 +158,8 @@ class _LoginPageState extends State<LoginPage> {
                 //////////////////////////SING UP WORK//////////////////////////////////////////
 
                 Material(
-                    color: Colors.white,
+                  
+                    color: context.canvasColor,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 450, vertical: 5),

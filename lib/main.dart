@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //home: HomePage(), y tw"/" routes wala use kro ya phr ye
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      theme: MyTheme.lightTheme(context), //from class of theme
-      //primaryTextTheme: GoogleFonts.latoTextTheme() //only used for primary tets
+     // highContrastTheme: MyTheme.darkTheme(context),
+      themeMode: ThemeMode.light,
+      theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context), //from class of theme
-      initialRoute: MyRoutes.LoginRoute,
+      initialRoute: MyRoutes.HomeRoute,
       //initialRoute: "/",
       routes: {
         "/": (context) => LoginPage(), //by default this page

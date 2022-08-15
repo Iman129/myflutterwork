@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,39 +8,45 @@ import 'package:velocity_x/velocity_x.dart%20';
 class MyTheme {
   //for light theme
   static ThemeData lightTheme(BuildContext context) => ThemeData(
-   // brightness: Brightness.light,
-      // primarySwatch:Colors.pink,
+
         // ignore: deprecated_member_use
       canvasColor: creamColor,
         fontFamily: GoogleFonts.poppins().fontFamily,
         cardColor: Colors.white,
+        // ignore: deprecated_member_use
         buttonColor: darkbluishColor,
+      // ignore: deprecated_member_use
       accentColor: Colors.black,
         appBarTheme: AppBarTheme(
           //color: Colors.black, //using instead o texttheme
           //har jagah appbar show hogi har page pe\
           elevation: 0.0, // sab appbars pe ye laagu hoga
-          titleTextStyle: TextStyle(
-              color: Colors.black, fontSize: 24), //using instead o texttheme
+        //using instead o texttheme
           iconTheme:
               IconThemeData(color: Colors.white), //using instead o texttheme
+             textTheme: Theme.of(context).textTheme
         ),
       );
 
   //for dark theme
   static ThemeData darkTheme(BuildContext context) => ThemeData(
       fontFamily: GoogleFonts.poppins().fontFamily,
+      // ignore: deprecated_member_use
       accentColor: Colors.white,
+      // ignore: deprecated_member_use
       buttonColor: indigoColor,
       cardColor: Colors.black,
       canvasColor: darkcreamColor,
       appBarTheme: AppBarTheme(
-        color: Colors.black, //using instead o texttheme
+        color: Colors.white, //using instead o texttheme
         //har jagah appbar show hogi har page pe\
         elevation: 0.0, // sab appbars pe ye laagu hoga
         titleTextStyle: TextStyle(
-            color: Colors.white, fontSize: 24), //using instead o texttheme
+            color: Colors.white, fontSize: 24),
+           // backgroundColor: Colors.white, //using instead o texttheme
         iconTheme: IconThemeData(color: Colors.white),
+        // ignore: deprecated_member_use
+        textTheme: Theme.of(context).textTheme
       ));
 
   //Colors
