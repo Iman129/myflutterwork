@@ -4,14 +4,23 @@ import 'dart:convert';
 //import 'dart:convert';
 
 class CatalogModel {
+   static final catModel = CatalogModel
+      ._internal(); //making it singelton _internal is a name you can give it any name
+  CatalogModel._internal();
+
+  factory CatalogModel() => catModel; //jab b CartModel call ho hamesha yehi cartModel object call ho ta k humara data empty na ho or bar bar initialization na ho
+  
+  //catalog fields
+
+ 
   // static to acces directly
   static List<Item> items = [];
 
-  static Item getById(int id) => items.firstWhere((element) => element.id == id,
+   Item getById(int id) => items.firstWhere((element) => element.id == id,
       orElse: null); //lement ki id meri id k equal honi chahiye warna null ho
 
   //get item by position
- static Item getByPosition(int pos) => items[pos];
+  Item getByPosition(int pos) => items[pos];
 }
 
 class Item {

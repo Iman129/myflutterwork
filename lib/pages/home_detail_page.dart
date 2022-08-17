@@ -3,11 +3,10 @@ import 'package:myfirst_app/models/catalog.dart';
 import 'package:myfirst_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
-
-  const HomeDetailPage({Key? key, required this.catalog})
+  final ImageErrorWidgetBuilder? errorBuilder;
+  const HomeDetailPage({Key? key, required this.catalog, this.errorBuilder})
       : assert(catalog != null),
         super(key: key);
 
@@ -21,7 +20,6 @@ class HomeDetailPage extends StatelessWidget {
       bottomNavigationBar: Container(
         color: context.cardColor,
         child: ButtonBar(
-          
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero, //khali right se padding
           children: [
@@ -30,7 +28,7 @@ class HomeDetailPage extends StatelessWidget {
               onPressed: () {},
               child: "Add to cart".text.make(),
               style: ButtonStyle(
-                  backgroundColor: 
+                  backgroundColor:
                       // ignore: deprecated_member_use
                       MaterialStateProperty.all(context.theme.buttonColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),
@@ -44,7 +42,12 @@ class HomeDetailPage extends StatelessWidget {
           children: [
             Hero(
                     tag: Key(catalog.id.toString()),
-                    child: Image.network(catalog.image).h40(context).centered())
+                    child: Image.network(
+                      catalog.image,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Text("data");
+                      },
+                    ).h40(context).centered())
                 .h32(context),
             Expanded(
               child: VxArc(
@@ -60,13 +63,16 @@ class HomeDetailPage extends StatelessWidget {
                           .color(context.theme.accentColor)
                           .make(),
                       catalog.desc.text.xl
-                          .textStyle(context.captionStyle) .color(context.theme.accentColor)
+                          .textStyle(context.captionStyle)
+                          .color(context.theme.accentColor)
                           .make(),
                       10.heightBox,
                       "Sit ipsum exercitation tempor nisi non amet. Irure ex reprehenderit do fugiat aliquip sit in cillum ut ea labore minim. Amet velit sit tempor est velit laborum. Nisi et est laboris incididunt sint ea elit ad occaecat."
-                      .text
-                       .textStyle(context.captionStyle).color(context.theme.accentColor)  
-                          .make().p12(),
+                          .text
+                          .textStyle(context.captionStyle)
+                          .color(context.theme.accentColor)
+                          .make()
+                          .p12(),
                     ],
                   ).py64(),
                 ),
