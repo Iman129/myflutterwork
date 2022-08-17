@@ -74,15 +74,17 @@ class _LoginPageState extends State<LoginPage> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 20, horizontal: 200),
                   child: Column(children: [
-                    
+                   
                     TextFormField(
                       // ignore: deprecated_member_use
-                      //style: TextStyle(color: Colors.white),
+                      //style: TextStyle(color: context.accentColor),
                      decoration: InputDecoration( 
+                     // fillColor: context.accentColor,
+                     // iconColor: context.accentColor,
                     hintText: "User Name Here",
                     labelText: "User Name",
+                     ),
                       
-                      ),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Username can not be Empty";
@@ -99,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
+                        fillColor: context.accentColor,
                         //fillColor: context.accentColor.withOpacity(0.2),
                          //filled: true,
                         hintText: "Password  Here",
@@ -178,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 "don't have an acount?",
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: context.accentColor,
                                   fontSize: 16,
                                   
                                 ),
@@ -201,7 +204,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: Text(
                                 "SignUp",
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 49, 18, 172),
+                                    color: Color.fromARGB(255, 49, 158, 248),
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold),
                               ),

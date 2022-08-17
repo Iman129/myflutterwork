@@ -11,7 +11,7 @@ class CartPage extends StatelessWidget {
       backgroundColor: context.canvasColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: "Cart".text.color(context.accentColor).make(),
+        title: "Cart".text.bold.color(context.accentColor).make(),
       ),
       body: Column(
         children: [
@@ -23,6 +23,7 @@ class CartPage extends StatelessWidget {
     );
   }
 }
+
 class _CartTotal extends StatelessWidget {
   //const MyWidget({Key? key}) : super(key: key);
 
@@ -30,27 +31,28 @@ class _CartTotal extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          // ignore: deprecated_member_use
-          "\$999".text.xl4.color(context.theme.accentColor).make(),//total price
-          30.widthBox,
-          ElevatedButton(onPressed: (){} ,
-           child: "Buy".text.white.make(),
-           style: ButtonStyle(
-            // ignore: deprecated_member_use
-            backgroundColor: MaterialStateProperty.all(context.theme.buttonColor))).w24(context)
-            
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+        // ignore: deprecated_member_use
+        "\$999".text.xl4.color(context.theme.accentColor).make(), //total price
+        30.widthBox,
+        ElevatedButton(
+                onPressed: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: "Buying not supported yet".text.make()));
+                },
+                child: "Buy".text.white.make(),
+                style: ButtonStyle(
+                    // ignore: deprecated_member_use
+                    backgroundColor:
+                        // ignore: deprecated_member_use
+                        MaterialStateProperty.all(context.theme.buttonColor)))
+            .w24(context)
       ]),
-
     );
-    
   }
 }
-class _CartList extends StatefulWidget {
-  
 
+class _CartList extends StatefulWidget {
   @override
   State<_CartList> createState() => __CartListState();
 }
@@ -59,14 +61,19 @@ class __CartListState extends State<_CartList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-     itemCount: 5,
-     itemBuilder: (context, index)=> ListTile(
-     leading: Icon(Icons.done),
-     trailing: IconButton(icon: Icon(Icons.remove), 
-     onPressed: () {  },),
-     title: "Item 1".text.make(),
-     ),
+      itemCount: 5,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.done),
+        iconColor: context.accentColor,
+        trailing: IconButton(
+          icon: Icon(Icons.delete),
+          
+          onPressed: () {
+          
+          },
+        ),
+        title: "Item 1".text.color(context.accentColor).make(),
+      ),
     );
-    
   }
 }

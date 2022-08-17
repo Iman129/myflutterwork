@@ -7,11 +7,11 @@ class CatalogModel {
   // static to acces directly
   static List<Item> items = [];
 
-  static Item getById(int id) => items.firstWhere((element) => element.id == id,
+   Item getById(int id) => items.firstWhere((element) => element.id == id,
       orElse: null); //lement ki id meri id k equal honi chahiye warna null ho
 
   //get item by position
- static Item getByPosition(int pos) => items[pos];
+  Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
