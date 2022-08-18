@@ -3,11 +3,14 @@ import 'package:myfirst_app/models/cart.dart';
 //import 'package:myfirst_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart ';
 
+import '../core/store.dart';
+
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: context.canvasColor,
       appBar: AppBar(
@@ -27,10 +30,12 @@ class CartPage extends StatelessWidget {
 
 class _CartTotal extends StatelessWidget {
   //const MyWidget({Key? key}) : super(key: key);
-  final _cart = CartModel();
+  
 
   @override
   Widget build(BuildContext context) {
+
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height: 100,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -59,8 +64,9 @@ class _CartTotal extends StatelessWidget {
 }
 
 class _CartList extends  StatelessWidget{
-  final _cart = CartModel();
+  //final _cart = CartModel();
   Widget build(BuildContext context) {
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return _cart.items!.isEmpty
         ? "Nothing to show".text.xl3.makeCentered()
         : ListView.builder(
