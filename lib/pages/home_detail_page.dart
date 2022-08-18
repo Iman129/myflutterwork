@@ -39,7 +39,7 @@ class HomeDetailPage extends StatelessWidget {
                       catalog.image,
                       errorBuilder: (context, error, stackTrace) {
                         return Text("data");
-                      },
+                      },//to get rid of error
                     ).h40(context).centered())
                 .h32(context),
             Expanded(

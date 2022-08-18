@@ -1,11 +1,7 @@
 import 'package:myfirst_app/models/catalog.dart';
 
 class CartModel {
-  static final cartModel = CartModel
-      ._internal(); //making it singelton _internal is a name you can give it any name
-  CartModel._internal();
 
-  factory CartModel() => cartModel; //jab b CartModel call ho hamesha yehi cartModel object call ho ta k humara data empty na ho or bar bar initialization na ho
   //catalog fields
   late CatalogModel _catalog; //private so make getter, yahan tak class singelton ban gai
 
